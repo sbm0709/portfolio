@@ -9,7 +9,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
   }
   a{
     text-decoration: none;
@@ -17,24 +16,55 @@
   ul, li, dt, dd {
     list-style: none;
   }
+  header{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+  }
+  .header_nav_container{
+    display: flex;
+    justify-content: space-around;
+  }
+  .start_title{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+  }
 
 </style>
 
 <body>
   <header>
     <div class="header_title_box">
-
+      <h1>SBM_PROTFOLIO</h1>
     </div>
-    <div>
-      <div class="header_nav_menu_box"></div>
-      <div class="header_nav_menu_box"></div>
-      <div class="header_nav_menu_box"></div>
-      <div class="header_nav_menu_box"></div>
+    <div class="header_nav_container">
+      <div class="header_nav_menu_box">
+        <span>aboutMe</span>
+      </div>
+      <div class="header_nav_menu_box">
+        <span>aboutMe</span>
+      </div>
+      <div class="header_nav_menu_box">
+        <span>aboutMe</span>
+      </div>
+      <div class="header_nav_menu_box">
+        <span>aboutMe</span>
+      </div>
     </div>
   </header>
   <main>
-    <section class="main_container">
-
+    <section class="start_container">
+        <article class="start_main">
+          <div class="start_title">
+            - 소병민 - <br> 포트폴리오
+          </div>
+        </article>
     </section>
     <section class="aboutMe_container">
 
