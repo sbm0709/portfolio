@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>PORTFOLIO</title>
+  <script src="https://kit.fontawesome.com/3e73eec07c.js" crossorigin="anonymous"></script>
 </head>
 <style>
   *{
@@ -16,7 +17,14 @@
   ul, li, dt, dd {
     list-style: none;
   }
+  button{
+    cursor: pointer;
+  }
   header{
+    position: fixed;
+    width: 100%;
+  }
+  .header_container{
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -28,33 +36,162 @@
     display: flex;
     justify-content: space-around;
   }
+  .header_nav_menu_box{
+    padding: 0 10px;
+  }
   .start_title{
-    padding: 40px;
+    font-size: 40px;
+  }
+  .start_container{
+    padding: 150px 0 100px 0;
+  }
+  .start_container hr{
+    width: 30px;
+    margin: 20px auto;
+    border: 2px solid black;
+  }
+  .start_content, .start_title, .start_btn, .section_title{
+    text-align: center;
+  }
+  .start_content{
+    margin-bottom: 20px;
+  }
+  .start_btn{
+    margin: 0 auto;
+    width: 120px;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  section{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .about_main{
+    padding: 50px 30px;
+  }
+  .section_title{
+    padding-bottom: 10px;
+    margin-bottom: 100px;
+    font-size: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+  }
+  .section_title .title{
+    display: inline-block;
+    border-bottom: 1px solid black;
+  }
+  .section_title i{
+    margin-right: 10px;
+    font-size: 50px;
+    color: #888888;
+  }
+  .about_content{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .basic_info_box{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    min-width: 350px;
+    min-height: 100px;
+    font-size: 20px;
+  }
+  .basic_info_img{
+    padding-right: 30px;
+  }
+  .inquiry_box{
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #b672f5;
+    border-radius: 8px;
+  }
+  .archive_content{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding: 30px;
+  }
+  .archive_link{
+    display: inline-block;
+    padding: 30px;
+    width: 400px;
+    color: black;
+    border-radius: 8px;
+    border: 1px solid black;
+  }
+  .link_box{
+    margin-bottom: 15px;
+    color: blue;
+    text-decoration: underline;
+  }
+  .link_title{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .link_content li{
+    margin-top: 10px;
+  }
+  .link_content span{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .career_content{
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    padding: 0 40px;
+    margin-bottom: 30px;
+  }
+  .career_logo{
+    width: 30%;
+    padding-right: 40px;
+    border-right: 1px solid #d9d9d9;
+  }
+  .career_info{
+    padding-left: 40px;
+    width: 50%;
+  }
+  .incumbent{
+  }
+  .career_history{
+  }
+  footer{
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 200px;
   }
 
 </style>
 
 <body>
   <header>
-    <div class="header_title_box">
-      <h1>SBM_PROTFOLIO</h1>
-    </div>
-    <div class="header_nav_container">
-      <div class="header_nav_menu_box">
-        <span>aboutMe</span>
+    <div class="header_container">
+      <div class="header_title_box">
+        <h1>SBM_PROTFOLIO</h1>
       </div>
-      <div class="header_nav_menu_box">
-        <span>aboutMe</span>
-      </div>
-      <div class="header_nav_menu_box">
-        <span>aboutMe</span>
-      </div>
-      <div class="header_nav_menu_box">
-        <span>aboutMe</span>
+      <div class="header_nav_container">
+        <div class="header_nav_menu_box">
+          <span>aboutMe</span>
+        </div>
+        <div class="header_nav_menu_box">
+          <span>aboutMe</span>
+        </div>
+        <div class="header_nav_menu_box">
+          <span>aboutMe</span>
+        </div>
+        <div class="header_nav_menu_box">
+          <span>aboutMe</span>
+        </div>
       </div>
     </div>
   </header>
@@ -62,24 +199,197 @@
     <section class="start_container">
         <article class="start_main">
           <div class="start_title">
-            - 소병민 - <br> 포트폴리오
+             소병민 <br> 포트폴리오
+          </div>
+          <hr>
+          <div class="start_content">
+            안녕하세요.
+            개발자를 목표로 하고있습니다.
+          </div>
+          <div class="start_btn">
+            더 알아보기
           </div>
         </article>
     </section>
     <section class="aboutMe_container">
-
+      <article class="about_main">
+        <div class="section_title">
+          <div>
+            <i class="fa-solid fa-section"></i>
+          </div>
+          <div class="title">
+            ABOUT ME
+          </div>
+        </div>
+        <div class="about_content">
+          <div class="basic_info_box">
+            <div class="basic_info_img">
+              <i class="fa-regular fa-calendar fa-2x"></i>
+            </div>
+            <div>
+              <div>
+                생년월일
+              </div>
+              <div>
+                98.09.21
+              </div>
+            </div>
+          </div>
+          <div class="basic_info_box">
+            <div class="basic_info_img">
+              <i class="fa-solid fa-user-tie fa-2x"></i>
+            </div>
+            <div>
+              <div>
+                이름
+              </div>
+              <div>
+                소병민
+              </div>
+            </div>
+          </div>
+          <div class="basic_info_box">
+            <div class="basic_info_img">
+              <i class="fa-solid fa-map-location-dot fa-2x"></i>
+            </div>
+            <div>
+              <div>
+                주소지
+              </div>
+              <div>
+                대구 수성구
+              </div>
+            </div>
+          </div>
+          <div class="basic_info_box">
+            <div class="basic_info_img">
+              <i class="fa-solid fa-phone fa-2x"></i>
+            </div>
+            <div>
+              <div>
+                연락처
+              </div>
+              <div>
+                010-9541-0830
+              </div>
+            </div>
+          </div>
+          <div class="basic_info_box">
+            <div class="basic_info_img">
+              <i class="fa-solid fa-envelope fa-2x"></i>
+            </div>
+            <div>
+              <div>
+                이메일
+              </div>
+              <div>
+                sbm070912@gmail.com
+              </div>
+            </div>
+          </div>
+<!--          <div class="basic_info_box">-->
+<!--            <div>-->
+<!--              이미지-->
+<!--            </div>-->
+<!--            <div>-->
+<!--              <div>-->
+<!--                학력-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                -->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+        <div class="inquiry_box">
+          기타 문의사항은 이메일로 부탁드립니다.
+        </div>
+      </article>
     </section>
     <section class="skill_container">
+      <article class="skill_main">
+        <div class="section_title">
+          <div>
+            <i class="fa-solid fa-section"></i>
+          </div>
+          <div class="title">
+            SKILLS
+          </div>
+        </div>
+        <div class="skill_content">
 
+        </div>
+      </article>
     </section>
     <section class="projects_container">
-
+      <div class="section_title">
+        <div>
+          <i class="fa-solid fa-section"></i>
+        </div>
+        <div class="title">
+          PROJECTS
+        </div>
+      </div>
     </section>
     <section class="archive_container">
-
+      <div class="section_title">
+        <div>
+          <i class="fa-solid fa-section"></i>
+        </div>
+        <div class="title">
+          ARCHIVING
+        </div>
+      </div>
+      <div class="archive_content">
+        <a href="https://github.com/sbm0709" class="archive_link">
+          <div class="link_title">
+            <i class="fa-brands fa-github fa-2x"></i> GitHub
+          </div>
+          <div class="link_box">
+            https://github.com/sbm0709
+          </div>
+          <div class="link_content">
+            <span>소스 코드 저장소입니다.</span>
+            <ul>
+              <li>과거 프로젝트, 프로그램, 앱의 소스 코드</li>
+              <li>혼자서 코딩 연습을 위해 만들던 소스 코드</li>
+            </ul>
+          </div>
+        </a>
+        <a href="" class="archive_link"></a>
+      </div>
     </section>
     <section class="career_container">
+      <div class="section_title">
+        <div>
+          <i class="fa-solid fa-section"></i>
+        </div>
+        <div class="title">
+          CAREER
+        </div>
+      </div>
+      <div class="career_content">
+        <div class="career_logo">
+          1
+        </div>
+        <div class="career_info">
+          <div class="incumbent">
 
+          </div>
+          <div class="career_history">
+              <ul>
+                <h4>대학교 재학</h4>
+                <h5>2017년 2월 ~ 2021년 2월</h5>
+
+                <h4>able 재직</h4>
+                <h5>2021 10월 ~ 2022년 12월</h5>
+
+                <h4>프로그래밍 공부 시작</h4>
+                <h5>2023 2월 ~ 현재</h5>
+              </ul>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer>
