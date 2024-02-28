@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>PORTFOLIO</title>
   <script src="https://kit.fontawesome.com/3e73eec07c.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+  <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
 </head>
 <style>
   *{
@@ -23,6 +25,7 @@
   header{
     position: fixed;
     width: 100%;
+    z-index: 10;
   }
   .header_container{
     max-width: 1200px;
@@ -31,7 +34,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 20px;
-    color: white;
+    color: rgba(255, 255, 255, 0.73);
+  }
+  header[active]{
+    background: white;
+    color: black;
+  }
+  header[active] > div{
+    color: black;
   }
   .header_nav_container{
     display: flex;
@@ -39,6 +49,9 @@
   }
   .header_nav_menu_box{
     padding: 0 10px;
+  }
+  .header_nav_menu_box span{
+    cursor: pointer;
   }
   .start_title{
     font-size: 40px;
@@ -172,19 +185,123 @@
     width: 50%;
   }
   .incumbent{
+
   }
   .career_history{
+
   }
   footer{
+    background: #d9d9d9;
+
+  }
+
+  footer section{
     margin: 0 auto;
     max-width: 1200px;
     height: 200px;
+    padding: 30px;
   }
   .skill_back{
     background: #ffea00;
   }
   .archive_back{
     background: #9c66ff;
+  }
+  .project_info{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .project_img{
+    width: 50%;
+    padding-right: 5%;
+  }
+  .project_carousel{
+    position: relative;
+    overflow: hidden;
+  }
+  .image_box img{
+    width: 100%;
+  }
+  .carousel_viewer{
+    display: flex;
+  }
+  .carousel_btnBox,.project_title, .project_sub_title{
+    /*display: flex;*/
+    /*justify-content: center;*/
+    text-align: center;
+  }
+  .project_title span{
+    font-size: 45px;
+    font-weight: bold;
+  }
+  .project_sub_title{
+    margin: 15px 0;
+  }
+  .project_sub_title span{
+    font-size: 20px;
+    color: rgba(213, 205, 205, 0.93);
+  }
+  .carousel_btnBox{
+    margin-top: 10px;
+    position: relative;
+    padding: 0 20px;
+  }
+  .carousel_btnBox button{
+    background: white;
+    border: none;
+    font-size: 45px;
+    margin: 0 10px;
+  }
+  .project_box{
+    flex: 0 0 100%;
+  }
+  .carouselPage{
+    display: inline-block;
+    right: 20px;
+    font-size: 35px;
+    position: absolute;
+  }
+  .project_explanation{
+    width: 50%;
+    padding: 25px;
+  }
+  .project_main_explanation{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+  }
+  .explanation_box{
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project_sub_explanation .explanation_box:last-child{
+    margin-bottom: 0
+  }
+
+  .explanation_label{
+    width: 35%;
+    font-weight: bolder;
+    font-size: 16px;
+  }
+  .explanation_content{
+    width: 63%;
+  }
+  .foot{
+    text-align: center;
+  }
+  .info_label{
+    font-size: 14px;
+  }
+  .info_content{
+    font-weight: bold;
+  }
+  .skill_content{
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
   }
 </style>
 
@@ -196,16 +313,19 @@
       </div>
       <div class="header_nav_container">
         <div class="header_nav_menu_box">
-          <span>aboutMe</span>
+          <span onclick="nav(this)">AboutMe</span>
         </div>
         <div class="header_nav_menu_box">
-          <span>aboutMe</span>
+          <span onclick="nav(this)">Skills</span>
         </div>
         <div class="header_nav_menu_box">
-          <span>aboutMe</span>
+          <span onclick="nav(this)">Projects</span>
         </div>
         <div class="header_nav_menu_box">
-          <span>aboutMe</span>
+          <span onclick="nav(this)">Archive</span>
+        </div>
+        <div class="header_nav_menu_box">
+          <span onclick="nav(this)">Career</span>
         </div>
       </div>
     </div>
@@ -228,7 +348,7 @@
         </article>
       </section>
     </div>
-    <section class="aboutMe_container">
+    <section class="aboutMe_container" id="AboutMe">
       <article class="about_main">
         <div class="section_title">
           <div>
@@ -244,10 +364,10 @@
               <i class="fa-regular fa-calendar fa-2x"></i>
             </div>
             <div>
-              <div>
+              <div class="info_label">
                 생년월일
               </div>
-              <div>
+              <div class="info_content">
                 98.09.21
               </div>
             </div>
@@ -257,11 +377,11 @@
               <i class="fa-solid fa-user-tie fa-2x"></i>
             </div>
             <div>
-              <div>
+              <div class="info_label">
                 이름
               </div>
-              <div>
-                소병민
+              <div class="info_content">
+                소 병민
               </div>
             </div>
           </div>
@@ -270,10 +390,10 @@
               <i class="fa-solid fa-map-location-dot fa-2x"></i>
             </div>
             <div>
-              <div>
+              <div class="info_label">
                 주소지
               </div>
-              <div>
+              <div class="info_content">
                 대구 수성구
               </div>
             </div>
@@ -283,10 +403,10 @@
               <i class="fa-solid fa-phone fa-2x"></i>
             </div>
             <div>
-              <div>
+              <div class="info_label">
                 연락처
               </div>
-              <div>
+              <div class="info_content">
                 010-9541-0830
               </div>
             </div>
@@ -296,10 +416,10 @@
               <i class="fa-solid fa-envelope fa-2x"></i>
             </div>
             <div>
-              <div>
+              <div class="info_label">
                 이메일
               </div>
-              <div>
+              <div class="info_content">
                 sbm070912@gmail.com
               </div>
             </div>
@@ -310,7 +430,7 @@
         </div>
       </article>
     </section>
-    <div class="skill_back">
+    <div class="skill_back" id="Skills">
       <section class="skill_container">
         <article class="skill_main">
           <div class="section_title">
@@ -322,12 +442,71 @@
             </div>
           </div>
           <div class="skill_content">
+            <div class="front_container">
+              <div>
+                FRONT
+              </div>
+              <div>
+                <img src="img/skill_Icons/front/html-5_919827.png" height="64" width="64"/>
+                <img src="img/skill_Icons/front/css_919826.png" height="64" width="64"/>
+                <img src="img/skill_Icons/front/js_5968292.png" height="64" width="64"/>
+              </div>
+            </div>
+            <div class="backend_container">
+              <div>
+                백
+              </div>
+              <div>
+                <img src="img/skill_Icons/backend/free-icon-java-226777.png" height="64" width="64"/>
+                <img src="img/skill_Icons/tools/icons8-봄-로고-64.png" height="64" width="64"/>
+              </div>
+            </div>
 
+            <div class="vcs_container">
+              <div>
+                vcs
+              </div>
+              <div>
+                <img src="img/skill_Icons/vcs/github_2111425.png" height="64" width="64"/>
+                <img src="img/skill_Icons/vcs/logomark-orange@2x.png" height="64" width="64"/>
+              </div>
+              </div>
+            <div class="tools_container">
+              <div>tools</div>
+              <div>
+                <img src="img/skill_Icons/tools/icons8-개념-64.png" height="64" width="64"/>
+              </div>
+            </div>
+            <div class="deployment_container">
+              <div>
+                배포관련
+              </div>
+              <div>
+                <img src="img/skill_Icons/deployment/free-icon-docker-919853.png" height="64" width="64"/>
+              </div>
+            </div>
+            <div class="database_container">
+              <div>
+                DB
+              </div>
+              <div>
+                <img src="img/skill_Icons/db/mybatis.png" height="64" />
+                <img src="img/skill_Icons/db/free-icon-mysql-919836.png" height="64" width="64"/>
+              </div>
+            </div>
+            <div class="certificate">
+              <div>
+                자격증
+              </div>
+              <div>
+                <img src="img/skill_Icons/certificate/qnet.gif" height="64"/>
+              </div>
+            </div>
           </div>
         </article>
       </section>
     </div>
-    <section class="projects_container">
+    <section class="projects_container" id="Projects">
       <article>
         <div class="section_title">
           <div>
@@ -337,9 +516,161 @@
             PROJECTS
           </div>
         </div>
+        <div class="project_carousel">
+          <div class="carousel_viewer">
+            <div class="project_box">
+              <div class="project_title">
+                <span>프로젝트 제목</span>
+              </div>
+              <div class="project_sub_title">
+                <span>프로젝트 기간(인원)</span>
+              </div>
+              <div class="project_info">
+                <div class="project_img">
+                  <div class="image_box">
+                    <img src="img/아기오구.jpg"/>
+                  </div>
+                </div>
+                <div class="project_explanation">
+                  <div class="project_main_explanation">
+                    <p>
+                      안녕하세요 여기는 프로젝트에 대한
+                      소감문을 작성할 예정이랍니다~~
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, dicta perspiciatis. Deleniti earum eos et harum laboriosam laudantium maiores natus, nisi perferendis, recusandae sapiente sint. Porro provident repudiandae ut veritatis.
+                    </p>
+                  </div>
+                  <div class="project_sub_explanation">
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>프로젝트 주요기능</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto consequatur cupiditate distinctio ducimus esse eum exercitationem fugiat ipsa itaque iusto nihil reiciendis repellendus reprehenderit, saepe sed unde veritatis voluptates.</span>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>GitHub</span>
+                      </div>
+                      <div class="explanation_content">
+                        <a href="https://github.com/sbm0709">"https://github.com/sbm0709" </a>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>URL</span>
+                      </div>
+                      <div class="explanation_content">
+                        <a href="https://github.com/sbm0709">"https://github.com/sbm0709" </a>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>FrontEnd</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>설명</span>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>BackEnd</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>설명</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project_box">
+              <div class="project_title">
+                <span>프로젝트 제목</span>
+              </div>
+              <div class="project_sub_title">
+                <span>프로젝트 기간(인원)</span>
+              </div>
+              <div class="project_info">
+                <div class="project_img">
+                  <div class="image_box">
+                    <img src="img/아기오구.jpg"/>
+                  </div>
+                </div>
+                <div class="project_explanation">
+                  <div class="project_main_explanation">
+                    <p>
+                      안녕하세요 여기는 프로젝트에 대한
+                      소감문을 작성할 예정이랍니다~~
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, dicta perspiciatis. Deleniti earum eos et harum laboriosam laudantium maiores natus, nisi perferendis, recusandae sapiente sint. Porro provident repudiandae ut veritatis.
+                    </p>
+                  </div>
+                  <div class="project_sub_explanation">
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>프로젝트 주요기능</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto consequatur cupiditate distinctio ducimus esse eum exercitationem fugiat ipsa itaque iusto nihil reiciendis repellendus reprehenderit, saepe sed unde veritatis voluptates.</span>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>GitHub</span>
+                      </div>
+                      <div class="explanation_content">
+                        <a href="https://github.com/sbm0709">"https://github.com/sbm0709" </a>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>URL</span>
+                      </div>
+                      <div class="explanation_content">
+                        <a href="https://github.com/sbm0709">"https://github.com/sbm0709" </a>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>FrontEnd</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>설명</span>
+                      </div>
+                    </div>
+                    <div class="explanation_box">
+                      <div class="explanation_label">
+                        <span>BackEnd</span>
+                      </div>
+                      <div class="explanation_content">
+                        <span>설명</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btnBox">
+          <button>
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button>
+            <i id="carouselBtn" class="fa-regular fa-circle-pause"></i>
+          </button>
+          <button>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="carouselPage">
+            <span>1</span>
+            <span>/</span>
+            <span>총</span>
+          </div>
+        </div>
       </article>
     </section>
-    <div class="archive_back">
+    <div class="archive_back" id="Archive">
       <section class="archive_container">
         <article>
 
@@ -386,7 +717,7 @@
         </article>
       </section>
     </div>
-    <section class="career_container">
+    <section class="career_container" id="Career">
       <article>
 
         <div class="section_title">
@@ -423,7 +754,79 @@
     </section>
   </main>
   <footer>
-
+    <section class="foot">
+      © 2024. So Byeong Min. All rights reserved.
+      <a href="https://kr.freepik.com/icon/html-5_919827#fromView=search&page=1&position=2&uuid=4aa9e42d-c222-4009-a5d7-ecd97b655dde">Freepik 제작 아이콘</a>
+    </section>
   </footer>
 </body>
 </html>
+<script>
+
+  const [prevBtn,carouselPause,nextBtn] = document.querySelector(".carousel_btnBox").querySelectorAll("button");
+  const pauseI = document.getElementById("carouselBtn");
+  const aboutNav = document.querySelector(".header_nav_menu_box").querySelector("span");
+  const start_btn = document.querySelector(".start_btn");
+  const CarouselNode = document.querySelector(".project_carousel");
+  const [nowPage, divide, totalPage] = document.querySelector(".carouselPage").querySelectorAll("span");
+  totalPage.textContent = document.querySelectorAll(".project_box").length.toString();
+  const options = {
+    loop: true ,
+    align : "center",
+    duration : 50,
+  };
+
+  const plugins = [EmblaCarouselAutoplay({delay: 3000})];
+  const Carousel = EmblaCarousel(CarouselNode, options, plugins);
+  Carousel.plugins().autoplay.play();
+  let carouselActive = true;
+
+  Carousel.on("select",() =>{
+    update_nowPage();
+  })
+
+  prevBtn.onclick = () => {
+    Carousel.scrollPrev();
+    update_nowPage();
+  }
+
+  nextBtn.onclick = () => {
+    Carousel.scrollNext();
+    update_nowPage();
+  }
+
+  carouselPause.onclick = () => {
+    if(carouselActive){
+      Carousel.plugins().autoplay.stop();
+      pauseI.className = "fa-regular fa-circle-play";
+    }
+    else {
+      Carousel.plugins().autoplay.play();
+      pauseI.className = "fa-regular fa-circle-pause";
+    }
+    carouselActive = !carouselActive;
+  };
+
+  function update_nowPage(){
+    nowPage.textContent = Carousel.selectedScrollSnap() + 1
+  }
+
+  start_btn.addEventListener("click", () => {nav(aboutNav);});
+  function nav(span){
+    const target = document.getElementById(`${span.textContent}`);
+    window.scroll({
+      top : target.offsetTop-70,
+      behavior: 'smooth'
+    })
+  }
+  function active_navBox(){
+    const header = document.querySelector("header");
+    if(window.scrollY > 0){
+      header.setAttribute("active","active");
+    }
+    else {
+      header.removeAttribute("active");
+    }
+  }
+  window.addEventListener("scroll", active_navBox);
+</script>
