@@ -1,263 +1,400 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+@font-face {
+  font-family: 'JalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+ul, li, dt, dd {
+  list-style: none;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+button{
+  cursor: pointer;
+}
+header{
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.header_container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 20px;
+  color: rgba(255, 255, 255, 0.73);
+}
+header[active]{
+  background: white;
+  color: black;
+}
+header[active] > div{
+  color: black;
+}
+.header_nav_container{
+  display: flex;
+  justify-content: space-around;
+}
+.header_nav_menu_box{
+  padding: 0 10px;
+}
+.header_nav_menu_box span{
+  cursor: pointer;
+}
+.start_title{
+  font-size: 60px;
+  color: white;
+}
+.start_container{
+  padding: 150px 0 100px 0;
+  height: 100vh;
+}
+.start_back{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.start_main{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+.start_container hr{
+  width: 30px;
+  margin: 30px auto;
+  border: 2px solid #914fff;
 }
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
+.start_content, .start_title, .start_btn, .section_title{
+  text-align: center;
+}
+.start_content{
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.start_btn{
   position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+  width: 49px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-25px);
+  cursor: pointer;
+  border-radius: 50%;
+  color: #bba1d2;
+  background: white;
+  margin:  0 auto;
+  animation: blink-in 1.5s infinite alternate;
 }
 
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+@keyframes blink-in {
+  100% {
+    opacity: 1; /* 처음과 끝에 보임 */
   }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
+  0% {
+    opacity: 0; /* 중간 지점에서 반투명으로 변경 */
   }
 }
 
+.start_btn i{
+  font-size: 50px;
+}
+
+section{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+article{
+  padding: 80px 30px 70px 30px;
+}
+.section_title{
+  padding-bottom: 10px;
+  margin-bottom: 70px;
+  font-size: 60px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+.section_title .title{
+  display: inline-block;
+  border-bottom: 1px solid black;
+}
+.section_title i{
+  margin-right: 10px;
+  font-size: 50px;
+  color: #888888;
+}
+.about_content{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.basic_info_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+  min-height: 100px;
+  font-size: 20px;
+}
+.basic_info_img{
+  padding-right: 30px;
+}
+.inquiry_box{
+  margin-top: 20px;
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #b672f5;
+  border-radius: 8px;
+}
+.archive_content{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  padding: 30px;
+
+}
+.archive_link{
+  display: inline-block;
+  padding: 30px;
+  width: 400px;
+  color: black;
+  border-radius: 8px;
+  border: 1px solid black;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.68);
+  transition: transform 0.2s ease;
+}
+
+.archive_link:hover{
+  transform: translateY(5px);
+}
+
+.link_box{
+  margin-bottom: 15px;
+  color: blue;
+  text-decoration: underline;
+}
+.link_title{
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.link_content li{
+  margin-top: 10px;
+}
+.link_content span{
+  font-weight: bold;
+  font-size: 18px;
+}
+.career_content{
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  padding: 0 40px;
+}
+.career_logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  padding-right: 40px;
+  border-right: 1px solid #d9d9d9;
+}
+.career_info{
+  padding-left: 40px;
+  width: 50%;
+}
+
+footer{
+  background: #d9d9d9;
+}
+.up_box{
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  display: none;
+}
+
+.up_box > i{
+  display: block;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+footer section{
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 200px;
+  padding: 30px;
+}
+.skill_back{
+  background: #ffea00;
+}
+.archive_back{
+  background: #9c66ff;
+}
+.project_info{
+  display: flex;
+  flex-flow: row wrap;
+}
+.project_img{
+  width: 50%;
+  padding-right: 5%;
+}
+.project_carousel{
+  position: relative;
+  overflow: hidden;
+}
+.image_box img{
+  width: 100%;
+}
+.carousel_viewer{
+  display: flex;
+}
+.carousel_btnBox,.project_title, .project_sub_title{
+  text-align: center;
+}
+.project_title span{
+  font-size: 45px;
+  font-weight: bold;
+}
+.project_sub_title{
+  margin: 15px 0;
+}
+.project_sub_title span{
+  font-size: 20px;
+  color: rgba(213, 205, 205, 0.93);
+}
+.carousel_btnBox{
+  margin-top: 10px;
+  position: relative;
+  padding: 0 20px;
+}
+.carousel_btnBox button{
+  background: white;
+  border: none;
+  font-size: 45px;
+  margin: 0 10px;
+}
+.project_box{
+  flex: 0 0 100%;
+}
+.carouselPage{
+  display: inline-block;
+  right: 20px;
+  font-size: 35px;
+  position: absolute;
+}
+.project_explanation{
+  width: 50%;
+  padding: 25px;
+}
+.project_main_explanation{
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+.explanation_box{
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project_sub_explanation .explanation_box:last-child{
+  margin-bottom: 0
+}
+
+.explanation_label{
+  width: 35%;
+  font-weight: bolder;
+  font-size: 16px;
+}
+.explanation_content{
+  width: 63%;
+}
+.foot{
+  text-align: center;
+}
+.info_label{
+  font-size: 14px;
+}
+.info_content{
+  font-weight: bold;
+}
+.skill_content{
+  background: white;
+  padding: 5%;
+  border-radius: 8px;
+  display: flex;
+  gap: 100px;
+  flex-flow: row wrap;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.skill_title{
+  margin-bottom: 15px;
+}
+.skill_icons{
+  display: flex;
+  gap: 20px;
+}
+.aspiration{
+  white-space: pre-line;
+}
+.time_line{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.history_title{
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.history_info ul{
+  padding: 0 20px;
+}
+.history_info ul li{
+  list-style: disc;
+  margin-bottom: 20px;
+  font-family: JalnanGothic,serif ;
+  transform : rotate(0.04deg);
+}
+.career_logo_box{
+  padding: 30px;
+  position: relative;
+}
+.career_logo_box img{
+  width: 100%;
+  height: 100%;
+}
+.career_history{
+  padding: 30px;
+}
+.time_line, .carouselPage, .basic_info_box, .foot{
+  font-family: Arc Maquette, serif;
+  transform : rotate(0.04deg);
+}
+
+.project_box, .archive_link, .start_content, .header_nav_menu_box{
+  font-family: JalnanGothic,serif ;
+  transform : rotate(0.04deg);
+}
+
+.history_title, .skill_title, .project_title, .inquiry_box, .section_title, .start_title, header{
+  font-family: Adelle ,serif ;
+  transform : rotate(0.04deg);
+}

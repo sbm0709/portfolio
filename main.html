@@ -6,310 +6,15 @@
   <script src="https://kit.fontawesome.com/3e73eec07c.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
   <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/xxxxxx.css">
+  <link rel="stylesheet" href="css/main.css" >
+  <script src="js/main.js" defer></script>
 </head>
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  a{
-    text-decoration: none;
-  }
-  ul, li, dt, dd {
-    list-style: none;
-  }
-  button{
-    cursor: pointer;
-  }
-  header{
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-  }
-  .header_container{
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 20px;
-    color: rgba(255, 255, 255, 0.73);
-  }
-  header[active]{
-    background: white;
-    color: black;
-  }
-  header[active] > div{
-    color: black;
-  }
-  .header_nav_container{
-    display: flex;
-    justify-content: space-around;
-  }
-  .header_nav_menu_box{
-    padding: 0 10px;
-  }
-  .header_nav_menu_box span{
-    cursor: pointer;
-  }
-  .start_title{
-    font-size: 40px;
-  }
-  .start_container{
-    padding: 150px 0 100px 0;
-  }
-  .start_back{
-    background-image:url("img/francesco-ungaro-iQ1_zubfEFY-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .start_container hr{
-    width: 30px;
-    margin: 20px auto;
-    border: 2px solid #b3d4fc;
-  }
-  .start_content, .start_title, .start_btn, .section_title{
-    text-align: center;
-  }
-  .start_content{
-    margin-bottom: 20px;
-    color: rgba(239, 160, 132, 0.92);
-  }
-  .start_btn{
-    margin: 0 auto;
-    width: 120px;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #bba1d2;
-    color: white;
-  }
-  section{
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  article{
-    padding: 80px 30px 70px 30px;
-  }
-  .section_title{
-    padding-bottom: 10px;
-    margin-bottom: 70px;
-    font-size: 60px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-  }
-  .section_title .title{
-    display: inline-block;
-    border-bottom: 1px solid black;
-  }
-  .section_title i{
-    margin-right: 10px;
-    font-size: 50px;
-    color: #888888;
-  }
-  .about_content{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-  }
-  .basic_info_box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 350px;
-    min-height: 100px;
-    font-size: 20px;
-  }
-  .basic_info_img{
-    padding-right: 30px;
-  }
-  .inquiry_box{
-    margin-top: 20px;
-    padding: 15px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #b672f5;
-    border-radius: 8px;
-  }
-  .archive_content{
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    padding: 30px;
-  }
-  .archive_link{
-    display: inline-block;
-    padding: 30px;
-    width: 400px;
-    color: black;
-    border-radius: 8px;
-    border: 1px solid black;
-    background: white;
-  }
-  .link_box{
-    margin-bottom: 15px;
-    color: blue;
-    text-decoration: underline;
-  }
-  .link_title{
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  .link_content li{
-    margin-top: 10px;
-  }
-  .link_content span{
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .career_content{
-    display: flex;
-    width: 100%;
-    position: relative;
-    justify-content: center;
-    padding: 0 40px;
-    margin-bottom: 30px;
-  }
-  .career_logo{
-    width: 30%;
-    padding-right: 40px;
-    border-right: 1px solid #d9d9d9;
-  }
-  .career_info{
-    padding-left: 40px;
-    width: 50%;
-  }
-  .incumbent{
-
-  }
-  .career_history{
-
-  }
-  footer{
-    background: #d9d9d9;
-
-  }
-
-  footer section{
-    margin: 0 auto;
-    max-width: 1200px;
-    height: 200px;
-    padding: 30px;
-  }
-  .skill_back{
-    background: #ffea00;
-  }
-  .archive_back{
-    background: #9c66ff;
-  }
-  .project_info{
-    display: flex;
-    flex-flow: row wrap;
-  }
-  .project_img{
-    width: 50%;
-    padding-right: 5%;
-  }
-  .project_carousel{
-    position: relative;
-    overflow: hidden;
-  }
-  .image_box img{
-    width: 100%;
-  }
-  .carousel_viewer{
-    display: flex;
-  }
-  .carousel_btnBox,.project_title, .project_sub_title{
-    /*display: flex;*/
-    /*justify-content: center;*/
-    text-align: center;
-  }
-  .project_title span{
-    font-size: 45px;
-    font-weight: bold;
-  }
-  .project_sub_title{
-    margin: 15px 0;
-  }
-  .project_sub_title span{
-    font-size: 20px;
-    color: rgba(213, 205, 205, 0.93);
-  }
-  .carousel_btnBox{
-    margin-top: 10px;
-    position: relative;
-    padding: 0 20px;
-  }
-  .carousel_btnBox button{
-    background: white;
-    border: none;
-    font-size: 45px;
-    margin: 0 10px;
-  }
-  .project_box{
-    flex: 0 0 100%;
-  }
-  .carouselPage{
-    display: inline-block;
-    right: 20px;
-    font-size: 35px;
-    position: absolute;
-  }
-  .project_explanation{
-    width: 50%;
-    padding: 25px;
-  }
-  .project_main_explanation{
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid black;
-  }
-  .explanation_box{
-    margin-bottom: 15px;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .project_sub_explanation .explanation_box:last-child{
-    margin-bottom: 0
-  }
-
-  .explanation_label{
-    width: 35%;
-    font-weight: bolder;
-    font-size: 16px;
-  }
-  .explanation_content{
-    width: 63%;
-  }
-  .foot{
-    text-align: center;
-  }
-  .info_label{
-    font-size: 14px;
-  }
-  .info_content{
-    font-weight: bold;
-  }
-  .skill_content{
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-  }
-</style>
-
 <body>
   <header>
     <div class="header_container">
       <div class="header_title_box">
-        <h1>SBM_PROTFOLIO</h1>
+        <h1>PORTFOLIO</h1>
       </div>
       <div class="header_nav_container">
         <div class="header_nav_menu_box">
@@ -328,22 +33,25 @@
           <span onclick="nav(this)">Career</span>
         </div>
       </div>
+      <div class=""></div>
     </div>
   </header>
   <main>
-    <div class="start_back">
+    <div class="start_back" style="background-image: url('img/tree-3358468_1280.jpg')">
       <section class="start_container">
         <article class="start_main">
-          <div class="start_title">
-            소병민 <br> 포트폴리오
-          </div>
-          <hr>
-          <div class="start_content">
-            안녕하세요.
-            개발자를 목표로 하고있습니다.
-          </div>
-          <div class="start_btn">
-            더 알아보기
+          <div>
+            <div class="start_title">
+              소병민 <br> 포트폴리오
+            </div>
+            <hr>
+            <div class="start_content">
+              <p class="aspiration">안녕하세요.
+                개발자를 목표로 공부 하고있습니다.</p>
+            </div>
+            <div class="start_btn">
+              <i class="fa-solid fa-circle-chevron-down"></i>
+            </div>
           </div>
         </article>
       </section>
@@ -441,67 +149,76 @@
               SKILLS
             </div>
           </div>
+
           <div class="skill_content">
-            <div class="front_container">
-              <div>
-                FRONT
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>언어</h2>
               </div>
-              <div>
-                <img src="img/skill_Icons/front/html-5_919827.png" height="64" width="64"/>
-                <img src="img/skill_Icons/front/css_919826.png" height="64" width="64"/>
-                <img src="img/skill_Icons/front/js_5968292.png" height="64" width="64"/>
-              </div>
-            </div>
-            <div class="backend_container">
-              <div>
-                백
-              </div>
-              <div>
-                <img src="img/skill_Icons/backend/free-icon-java-226777.png" height="64" width="64"/>
-                <img src="img/skill_Icons/tools/icons8-봄-로고-64.png" height="64" width="64"/>
-              </div>
+              <ul  class="skill_icons">
+                <li><img src="img/skill_Icons/front/html-5_919827.png" height="64" width="64"/></li>
+                <li><img src="img/skill_Icons/front/css_919826.png" height="64" width="64"/></li>
+                <li><img src="img/skill_Icons/front/js_5968292.png" height="64" width="64"/></li>
+                <li><img src="img/skill_Icons/backend/free-icon-java-226777.png" height="64" width="64"/></li>
+              </ul>
             </div>
 
-            <div class="vcs_container">
-              <div>
-                vcs
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>FrameWork</h2>
               </div>
-              <div>
-                <img src="img/skill_Icons/vcs/github_2111425.png" height="64" width="64"/>
-                <img src="img/skill_Icons/vcs/logomark-orange@2x.png" height="64" width="64"/>
-              </div>
-              </div>
-            <div class="tools_container">
-              <div>tools</div>
-              <div>
-                <img src="img/skill_Icons/tools/icons8-개념-64.png" height="64" width="64"/>
-              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/tools/icons8-봄-로고-64.png" height="64" width="64"/></li>
+              </ul>
             </div>
-            <div class="deployment_container">
-              <div>
-                배포관련
+
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>vcs</h2>
               </div>
-              <div>
-                <img src="img/skill_Icons/deployment/free-icon-docker-919853.png" height="64" width="64"/>
-              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/vcs/github_2111425.png" height="64" width="64"/></li>
+                <li><img src="img/skill_Icons/vcs/logomark-orange@2x.png" height="64" width="64"/></li>
+              </ul>
             </div>
-            <div class="database_container">
-              <div>
-                DB
+
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>tools</h2>
               </div>
-              <div>
-                <img src="img/skill_Icons/db/mybatis.png" height="64" />
-                <img src="img/skill_Icons/db/free-icon-mysql-919836.png" height="64" width="64"/>
-              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/tools/icons8-개념-64.png" height="64" width="64"/></li>
+              </ul>
             </div>
-            <div class="certificate">
-              <div>
-                자격증
+
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>배포관련</h2>
               </div>
-              <div>
-                <img src="img/skill_Icons/certificate/qnet.gif" height="64"/>
-              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/deployment/free-icon-docker-919853.png" height="64" width="64"/></li>
+              </ul>
             </div>
+
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>DB</h2>
+              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/db/mybatis.png" height="64" /></li>
+                <li><img src="img/skill_Icons/db/free-icon-mysql-919836.png" height="64" width="64"/></li>
+              </ul>
+            </div>
+
+            <div class="skill_content_container">
+              <div class="skill_title">
+                <h2>자격증</h2>
+              </div>
+              <ul class="skill_icons">
+                <li><img src="img/skill_Icons/certificate/qnet.gif" height="64"/></li>
+              </ul>
+            </div>
+
           </div>
         </article>
       </section>
@@ -693,7 +410,7 @@
               <div class="link_content">
                 <span>소스 코드 저장소입니다.</span>
                 <ul>
-                  <li>과거 프로젝트, 프로그램, 앱의 소스 코드</li>
+                  <li>프로젝트, 프로그램, 앱의 소스 코드</li>
                   <li>혼자서 코딩 연습을 위해 만들던 소스 코드</li>
                 </ul>
               </div>
@@ -719,7 +436,6 @@
     </div>
     <section class="career_container" id="Career">
       <article>
-
         <div class="section_title">
           <div>
             <i class="fa-solid fa-section"></i>
@@ -728,28 +444,98 @@
             CAREER
           </div>
         </div>
-        <div class="career_content">
-          <div class="career_logo">
-            1
-          </div>
-          <div class="career_info">
-            <div class="incumbent">
-
+        <ul>
+          <li class="career_content">
+            <div class="career_logo">
+              <div class="career_logo_box">
+                <img src="img/career/영진.jpg"/>
+              </div>
             </div>
-            <div class="career_history">
-              <ul>
-                <h4>영진 전문대학교</h4>
-                <h5>2017년 2월 ~ 2021년 2월</h5>
-
-                <h4>able 재직</h4>
-                <h5>2021 10월 ~ 2022년 12월</h5>
-
-                <h4>프로그래밍 공부 시작</h4>
-                <h5>2023 2월 ~ 현재</h5>
-              </ul>
+            <div class="career_info">
+              <div class="career_history">
+                <div class="history">
+                  <div>
+                    <div class="time_line">
+                      <h5>2017.02 ~ 2021.02</h5>
+                    </div>
+                    <div class="history_title">
+                      <h4>
+                        영진 전문대학교
+                        <br>
+                        전자정보통신과
+                      </h4>
+                    </div>
+                    <div class="history_info">
+                      <ul>
+                        <li>했던일</li>
+                        <li>했던일</li>
+                        <li>했던일</li>
+                        <li>했던일</li>
+                        <li>했던일</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </li>
+          <li class="career_content">
+            <div class="career_logo">
+              <div class="career_logo_box">
+                <img src="img/오구는 오늘도 오리너구리해.jpg"/>
+              </div>
+            </div>
+            <div class="career_info">
+              <div class="career_history">
+                <div class="history">
+                  <div>
+                    <div class="time_line">
+                      <h5>2021.10 ~ 2022.12</h5>
+                    </div>
+                    <div class="history_title">
+                      <h4>
+                        Able
+                      </h4>
+                    </div>
+                    <div class="history_info">
+                      <ul>
+                        <li>했던일</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="career_content">
+            <div class="career_logo">
+              <div class="career_logo_box">
+                <img src="img/오구는 오늘도 오리너구리해.jpg"/>
+              </div>
+            </div>
+            <div class="career_info">
+              <div class="career_history">
+                <div class="history">
+                  <div>
+                    <div class="time_line">
+                      <h5>2023.2 ~ 현재</h5>
+                    </div>
+                    <div class="history_title">
+                      <h4>
+
+                      </h4>
+                    </div>
+                    <div class="history_info">
+                      <ul>
+                        <li>했던일</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </article>
     </section>
   </main>
@@ -758,75 +544,9 @@
       © 2024. So Byeong Min. All rights reserved.
       <a href="https://kr.freepik.com/icon/html-5_919827#fromView=search&page=1&position=2&uuid=4aa9e42d-c222-4009-a5d7-ecd97b655dde">Freepik 제작 아이콘</a>
     </section>
+    <div class="up_box">
+      <i class="fa-solid fa-circle-chevron-up" onclick="goTop()"></i>
+    </div>
   </footer>
 </body>
 </html>
-<script>
-
-  const [prevBtn,carouselPause,nextBtn] = document.querySelector(".carousel_btnBox").querySelectorAll("button");
-  const pauseI = document.getElementById("carouselBtn");
-  const aboutNav = document.querySelector(".header_nav_menu_box").querySelector("span");
-  const start_btn = document.querySelector(".start_btn");
-  const CarouselNode = document.querySelector(".project_carousel");
-  const [nowPage, divide, totalPage] = document.querySelector(".carouselPage").querySelectorAll("span");
-  totalPage.textContent = document.querySelectorAll(".project_box").length.toString();
-  const options = {
-    loop: true ,
-    align : "center",
-    duration : 50,
-  };
-
-  const plugins = [EmblaCarouselAutoplay({delay: 3000})];
-  const Carousel = EmblaCarousel(CarouselNode, options, plugins);
-  Carousel.plugins().autoplay.play();
-  let carouselActive = true;
-
-  Carousel.on("select",() =>{
-    update_nowPage();
-  })
-
-  prevBtn.onclick = () => {
-    Carousel.scrollPrev();
-    update_nowPage();
-  }
-
-  nextBtn.onclick = () => {
-    Carousel.scrollNext();
-    update_nowPage();
-  }
-
-  carouselPause.onclick = () => {
-    if(carouselActive){
-      Carousel.plugins().autoplay.stop();
-      pauseI.className = "fa-regular fa-circle-play";
-    }
-    else {
-      Carousel.plugins().autoplay.play();
-      pauseI.className = "fa-regular fa-circle-pause";
-    }
-    carouselActive = !carouselActive;
-  };
-
-  function update_nowPage(){
-    nowPage.textContent = Carousel.selectedScrollSnap() + 1
-  }
-
-  start_btn.addEventListener("click", () => {nav(aboutNav);});
-  function nav(span){
-    const target = document.getElementById(`${span.textContent}`);
-    window.scroll({
-      top : target.offsetTop-70,
-      behavior: 'smooth'
-    })
-  }
-  function active_navBox(){
-    const header = document.querySelector("header");
-    if(window.scrollY > 0){
-      header.setAttribute("active","active");
-    }
-    else {
-      header.removeAttribute("active");
-    }
-  }
-  window.addEventListener("scroll", active_navBox);
-</script>
