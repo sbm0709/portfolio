@@ -1,3 +1,4 @@
+const menuDiv = document.querySelector(".header_meta_nav");
 const [prevBtn,carouselPause,nextBtn] = document.querySelector(".carousel_btnBox").querySelectorAll("button");
 const pauseI = document.getElementById("carouselBtn");
 const aboutNav = document.querySelector(".header_nav_menu_box").querySelector("span");
@@ -52,7 +53,7 @@ function update_nowPage(){
 function nav(span){
   const target = document.getElementById(`${span.textContent}`);
   window.scroll({
-    top : target.offsetTop-70,
+    top : target.offsetTop-60,
     behavior: 'smooth'
   })
 }
@@ -79,4 +80,11 @@ function view_up_box(){
     upBox.style.display = "block";
   }
   else upBox.style.display = "none";
+}
+function navMenuOpen(){
+  menuDiv.toggleAttribute("active");
+}
+function openedMenuNav(span) {
+  nav(span);
+  navMenuOpen();
 }

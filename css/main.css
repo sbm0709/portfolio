@@ -51,14 +51,63 @@ header[active] > div{
 .header_nav_menu_box span{
   cursor: pointer;
 }
+.header_meta_nav{
+  display: none;
+  padding: 0 30px;
+  z-index: 5;
+  border-bottom: 1px solid black;
+}
+.header_meta_nav[active]{
+  display: block;
+}
+
+.header_nav_list_box{
+  display: none;
+  cursor: pointer;
+}
+
+.opened_nav_menu_box{
+  padding: 10px;
+}
+
+.opened_nav_menu_box span{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px){
+  .header_nav_container{
+    display: none;
+  }
+  .header_nav_list_box{
+    display: block;
+  }
+  header{
+    background: white;
+  }
+  .header_container{
+    color: black;
+  }
+  header > div{
+    color: black;
+  }
+}
+
 .start_title{
   font-size: 60px;
   color: white;
 }
+
 .start_container{
   padding: 150px 0 100px 0;
   height: 100vh;
 }
+
+@media screen and (max-width: 1200px){
+  .start_container{
+    height: auto;
+  }
+}
+
 .start_back{
   background-repeat: no-repeat;
   background-size: cover;
@@ -69,6 +118,7 @@ header[active] > div{
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .start_container hr{
@@ -86,7 +136,7 @@ header[active] > div{
 .start_btn{
   position: absolute;
   width: 49px;
-  bottom: 10%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-25px);
   cursor: pointer;
@@ -163,6 +213,7 @@ article{
   justify-content: space-around;
   flex-flow: row wrap;
   padding: 30px;
+  gap: 15px;
 
 }
 .archive_link{
