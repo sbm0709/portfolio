@@ -449,3 +449,14 @@ footer section{
   font-family: Adelle ,serif ;
   transform : rotate(0.04deg);
 }
+
+.notion_project_btn{
+  margin-top: 10px;
+  display: block;
+  width: 150px;
+  background-color: #9c66ff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  color: black;
+}
