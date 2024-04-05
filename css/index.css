@@ -5,6 +5,7 @@
   font-style: normal;
 }
 
+
 *{
   margin: 0;
   padding: 0;
@@ -440,15 +441,16 @@ footer section{
   transform : rotate(0.04deg);
 }
 
-.project_box, .archive_link, .start_content, .header_nav_menu_box{
+.project_box, .archive_link, .start_content, .header_nav_menu_box, .start_title{
   font-family: JalnanGothic,serif ;
   transform : rotate(0.04deg);
 }
 
-.history_title, .skill_title, .project_title, .inquiry_box, .section_title, .start_title, header{
+.history_title, .skill_title, .project_title, .inquiry_box, .section_title, header{
   font-family: Adelle ,serif ;
   transform : rotate(0.04deg);
 }
+
 
 .notion_project_btn{
   margin-top: 10px;
