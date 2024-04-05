@@ -378,6 +378,7 @@ footer section{
   font-size: 16px;
 }
 .explanation_content{
+  overflow: hidden;
   width: 63%;
 }
 .foot{
